@@ -1,0 +1,11 @@
+git clone https://github.com/AlexDevelop1991/pythonProject1.git
+git commit
+git add *
+git status
+git push
+git pull
+git fetch
+git config --global
+git rm --cached 'filename'
+git restore 'filename'
+git remote add origin 'master'
