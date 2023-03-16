@@ -1,4 +1,4 @@
-version_py = 'Python version 3.10.10'
+import sys
 
-print(version_py)
+print(sys.version)
 
