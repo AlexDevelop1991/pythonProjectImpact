@@ -4,7 +4,7 @@ print(welcome)
 print(question)
 
 variant = (input('Вводите ответ с большой буквы ваш вариант:'))
-answer = 'Тихий океан'
+answer = 'Тихий'
 
 while variant != answer:
     if answer < variant:
