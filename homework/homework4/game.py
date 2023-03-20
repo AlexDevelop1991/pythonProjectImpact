@@ -1,9 +1,9 @@
 welcome = 'Привет добро пожаловать в игру  Угадай слово'
-question = 'Вопрос:Как самый большой океан в мире?'
+question = 'Вопрос:Какой самый большой океан в мире?'
 print(welcome)
 print(question)
 
-variant = (input('Ваш вариант:'))
+variant = (input('Вводите ответ с большой буквы ваш вариант:'))
 answer = 'Тихий океан'
 
 while variant != answer:
