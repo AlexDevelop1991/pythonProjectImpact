@@ -42,6 +42,7 @@ def heal(pers_hp, live):
     return  pers_hp
 
 pers_hp == critical(pers_hp, 55)
+
 print(pers_hp)
 
 pers_hp = attack(pers_hp, 40)
@@ -54,9 +55,15 @@ print(pers_hp)
 
 for j in range(0, 11):
 
-    if pers_hp > 0:
+    if pers_hp >= 50:
 
         pers_hp = critical(pers_hp)
+
+    else:
+
+        continue
+
+    print('Critical damage', pers_hp)
 
 
 

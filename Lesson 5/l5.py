@@ -13,7 +13,7 @@ print(bool_array)
 
 #Show array by elements using Index
 
-for i in range(0,6):
+for i in range(0, 6):
     print(int_array[i])
 
 for i in range(0, len(char_array)):
