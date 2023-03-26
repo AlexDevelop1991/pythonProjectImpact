@@ -7,7 +7,7 @@ count = 0
 for j in range(1):
 
     s_name = input('Имя студента:')
-    finish.update({'Имя студента:' :  s_name})
+    finish.update({'Имя студента:':  s_name})
 
     for i in range(0, 4):
         dis_name = input('Дисциплина:')
