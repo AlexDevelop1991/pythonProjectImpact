@@ -34,6 +34,7 @@ def heal(pers_hp, live):
     global max_pers_hp
 
     if pers_hp + live > max_pers_hp:
+
         pers_hp = max_pers_hp
 
     else:
@@ -41,7 +42,7 @@ def heal(pers_hp, live):
 
     return  pers_hp
 
-pers_hp == critical(pers_hp, 55)
+pers_hp = critical(pers_hp,)
 
 print(pers_hp)
 
@@ -52,20 +53,6 @@ print(pers_hp)
 pers_hp = heal(pers_hp, 20)
 
 print(pers_hp)
-
-for j in range(0, 11):
-
-    if pers_hp >= 50:
-
-        pers_hp = critical(pers_hp)
-
-    else:
-
-        continue
-
-    print('Critical damage', pers_hp)
-
-
 
 for i in range(1, 100):
 

@@ -28,6 +28,8 @@ def heal(pers_hp, live):
     else:
         pers_hp = pers_hp + live
     return  pers_hp  # Return the value
+
+
 # Call Functions
 pers_hp = attack(pers_hp, 40)
 print(pers_hp)
