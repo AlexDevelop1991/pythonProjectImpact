@@ -83,7 +83,6 @@ for i in range(1, 100):
     if pers_hp > 0:
         nr_hits = nr_hits + 1
 
-
         if nr_hits % 3 == 0:
             pass
         else:
