@@ -3,7 +3,7 @@ fighters = []
 heal_power = 10
 
 class Characters():
-    #Data declaring
+    # Data declaring
     Name = ''
     Hp = 0
     Armor = 0
@@ -15,7 +15,7 @@ class Characters():
         self.Power = Power
 
 class Game(Characters):
-     #Function to heal fighter
+     # Function to heal fighter
     def heal(self):
         global heal_power
         self.Hp += heal_power
@@ -23,7 +23,7 @@ class Game(Characters):
 
 
 
-        #Function fo attack
+        # Function fo attack
     def attacked(self, Damage):
         if self.Hp - Damage > 0:
             self.Hp -= Damage
@@ -35,8 +35,8 @@ class Game(Characters):
             return False
 
 
-#Read players number
-#Better 2 players
+# Read players number
+# Better 2 players
 while 1:
     try:
         nr = int(input('How many personage are in game?'))
@@ -46,7 +46,7 @@ while 1:
         print('Wrong data type')
         continue
 
-#Read data about Fighters
+# Read data about Fighters
 for i in range(0, nr):
     name = input('Name:')
     Hp = int(input('HP'))
@@ -54,7 +54,7 @@ for i in range(0, nr):
     Power = int(input('Power'))
     fighters.append(Game(name, Hp, Armor, Power))
 
-#Declaring Game Data
+# Declaring Game Data
 alive = True
 player1 = fighters[0]
 player2 = fighters[1]
@@ -62,5 +62,29 @@ player2 = fighters[1]
 cur_player = player1
 next_player = player2
 
+while alive:
+
+    # User interface
+    print('Turn to choose for', cur_player.Name)
+    print('Enter 1 for attack other player')
+    print('Enter 2 for heall')
+    print('Enter 3 to Continue')
+    move = int(input())
+
+    #Game logic
+    if move == 1:
+        alive = next_player.attacked(cur_player.Power)
+    elif move == 2:
+        cur_player.heal()
+    elif move == 3:
+        continue
+
+    # Swith players
+    if cur_player == player1:
+        cur_player = player2
+        next_player = player1
+    else:
+        cur_player = player1
+        next_player = player2
 
 
