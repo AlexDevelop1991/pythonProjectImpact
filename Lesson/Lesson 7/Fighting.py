@@ -49,7 +49,7 @@ while 1:
 # Read data about Fighters
 for i in range(0, nr):
     name = input('Name:')
-    Hp = int(input('HP'))
+    Hp = int(input('HP'))     # Тут добавить Try except
     Armor = int(input('Armor'))
     Power = int(input('Power'))
     fighters.append(Game(name, Hp, Armor, Power))
@@ -69,7 +69,7 @@ while alive:
     print('Enter 1 for attack other player')
     print('Enter 2 for heall')
     print('Enter 3 to Continue')
-    move = int(input())
+    move = int(input())  # Тут добавить try except
 
     #Game logic
     if move == 1:

@@ -28,7 +28,7 @@ class Person:
         self.age = age
 
     def say_hi(self):
-        print('Hi my name is', self.name)
+        print('Hi my name is',self.name)
 
 
 p1 = Person('Ion', 16)
