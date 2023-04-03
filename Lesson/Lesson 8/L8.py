@@ -34,3 +34,14 @@ f.close()
 #Open and read the file after the appending
 f = open('file2.txt', 'r')
 print(f.read())
+
+#Удаление файла
+import os
+os.remove('file2.txt')
+
+# Проверка существует ли файл
+import os
+if os.path.exists('file.txt'):
+    os.remove('file.txt')
+else:
+    print('The file doet not exist')
