@@ -8,5 +8,7 @@ match option:
         read_file()
     case 2:
         add_data()
+    case 3:
+        edit_data()
 
 
