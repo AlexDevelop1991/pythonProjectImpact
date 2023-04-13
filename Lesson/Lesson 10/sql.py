@@ -11,7 +11,7 @@ try:
     # Fetch and output result
     result = cursor.fetchall()
     print('SQLite Version is {}'.format(result))
-    cursor.execute('DROP TABLE IF EXISTS Impact')
+    cursor.execute('DROP TABLE IF EXISTS Impact')  # Проверка на наличие таблицы
     # Creat table
     table = """CREATE TABLE Impact(
                Email VARCHAR(255) NOT NULL,
@@ -43,9 +43,6 @@ try:
     print("Table Impact after Delete:")
     for row in delete_data:
         print(row)
-
-
-
 
 
 # Commit your changes in the database
