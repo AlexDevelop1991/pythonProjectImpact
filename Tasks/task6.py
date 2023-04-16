@@ -2,7 +2,7 @@
 string1 = {'a', 'b', 'c', 'd'}
 string2 = {'a', 'b', 'c', 'd'}
 # Вывести в терминал результат сравнения двух созданых объектов,объясни результат
-print( string1 == string2)
+print(string1 == string2)
 print(string1 != string2)
 # Сравни два объекта используя оператор is,объясни результат
 print(string1 is string2)
