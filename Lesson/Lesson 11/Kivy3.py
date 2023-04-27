@@ -2,7 +2,7 @@ from kivymd.app import MDApp
 from kivymd.uix.label import MDLabel
 from kivymd.uix.screen import Screen
 from kivymd.uix.textfield import MDTextField
-from livymd.uix.button import MDReactangleFlatButton
+from kivymd.uix.button import MDRectangleFlatButton
 # Creating Demo Class(base class)
 class Demo(MDApp):
     def build(self):
@@ -12,7 +12,7 @@ class Demo(MDApp):
         # Defining Text field with all the parameters
         self.n = MDTextField(text='Enter name', pos_hint={'center_x': 0.5, 'center_y': 0.8}, size_hint_x=None, width=100)
         # Defining Button with all the parameters
-        btn = MDReactangleFlatButton(text='Submit', pos_hint={'center_x': 0.5, 'center_y': 0.3}, on_release= self.btnfunc)
+        btn = MDRectangleFlatButton(text='Submit', pos_hint={'center_x': 0.5, 'center_y': 0.3}, on_release= self.btnfunc)
         # Adding widgets to screen
         screen.add_widget(self.n)
         screen.add_widget(btn)
