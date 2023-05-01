@@ -26,7 +26,7 @@ try:
     # Display data inserted
     print('Data Insert in the table:')
     data = cursor.execute("""SELECT * FROM Impact
-                          WHERE First_Name = 'Alexander'""")
+                             WHERE First_Name = 'Alexander'""")
     for row in data:
         print(row)
 
