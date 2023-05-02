@@ -11,7 +11,7 @@ try:
                 Name_Curs VARCHAR(255) NOT NULL,
                 First_Name CHAR(25) NOT NULL,
                 Last_Name CHAR(25) NOT NULL,
-                Email VARCHAR(255));
+                Email VARCHAR(255) NOT NULL);
                 """
     cursor.execute(table)
     print('Table Сreate')
