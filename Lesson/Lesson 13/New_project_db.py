@@ -16,16 +16,16 @@ with sqlite3.connect(CONN_DB) as sql_connect:
                 """
     sql_connect.execute(sql_table)
 # Добавляем значения в столбцы таблицы в базе данных Вариант 1
-# with sqlite3.connect(CONN_DB) as sql_connect:
-#     sql_table = "INSERT INTO curs_it VALUES(?, ?, ?, ?, ?)"
-#     sql_connect.execute(sql_table, ("Python", "Alexander", "Brovco", "alexdevelop1991@gmail.com", "079660660"))
-#     sql_connect.execute(sql_table, ("Java", "Slava", "Ivanov", "slavva@gmail.com", "076436789"))
-#     sql_connect.execute(sql_table, ("C++", "Nica", "Petrova", "nicaaa@gmail.com", "078452390"))
-#     sql_connect.execute(sql_table, ("JavaScript", "Oleg", "Sidorov", "oleggg2000@gmail.com", "060671043"))
-#     sql_connect.execute(sql_table, ("JavaScript", "Nicolai", "Popa", "kolea1983@gmail.com", "078651209"))
-#     sql_connect.execute(sql_table, ("JavaScript", "Olea", "Smirnova", "oleasmirnova@mail.ru", "069128065"))
-#     sql_connect.execute(sql_table, ("Python", "Dima", "Vieru", "vieru2000@gmail.com", "068340701"))
-#     sql_connect.commit()
+with sqlite3.connect(CONN_DB) as sql_connect:
+    sql_table = "INSERT INTO curs_it VALUES(?, ?, ?, ?, ?)"
+    sql_connect.execute(sql_table, ("Python", "Alexander", "Brovco", "alexdevelop1991@gmail.com", "079660660"))
+    sql_connect.execute(sql_table, ("Java", "Slava", "Ivanov", "slavva@gmail.com", "076436789"))
+    sql_connect.execute(sql_table, ("C++", "Nica", "Petrova", "nicaaa@gmail.com", "078452390"))
+    sql_connect.execute(sql_table, ("JavaScript", "Oleg", "Sidorov", "oleggg2000@gmail.com", "060671043"))
+    sql_connect.execute(sql_table, ("JavaScript", "Nicolai", "Popa", "kolea1983@gmail.com", "078651209"))
+    sql_connect.execute(sql_table, ("JavaScript", "Olea", "Smirnova", "oleasmirnova@mail.ru", "069128065"))
+    sql_connect.execute(sql_table, ("Python", "Dima", "Vieru", "vieru2000@gmail.com", "068340701"))
+    sql_connect.commit()
 # Вариант 2
 # curs_it = [
 #     ("Python", "Alexander", "Brovco", "alexdevelop1991@gmail.com", "079660660"),
