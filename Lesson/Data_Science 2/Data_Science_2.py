@@ -166,7 +166,7 @@ plt.show()
 # Part 17
 x = np.array([5, 7, 8, 7, 2, 17, 2, 9, 4, 11, 12, 9, 6])
 y = np.array([99, 86, 87, 88, 11, 86, 103, 87, 94, 78, 77, 85, 86])
-colors= np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])
+colors = np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])
 
 plt.scatter(x, y, c=colors, cmap='viridis')
 plt.show()
@@ -174,10 +174,81 @@ plt.show()
 # Part 18
 x = np.array([5, 7, 8, 7, 2, 17, 2, 9, 4, 11, 12, 9, 6])
 y = np.array([99, 86, 87, 88, 11, 86, 103, 87, 94, 78, 77, 85, 86])
-colors= np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])
+colors = np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])
 
 plt.scatter(x, y, c=colors, cmap= 'viridis')
 plt.colorbar()
 plt.show()
 
 # Part 19
+x = np.array([5, 7, 8, 7, 2, 17, 2, 9, 4, 11, 12, 9, 6])
+y = np.array([99, 86, 87, 88, 11, 86, 103, 87, 94, 78, 77, 85, 86])
+sizes = np.array([20, 50, 100, 200, 500 ,1000, 60, 90, 10, 300, 600, 800, 75])
+
+plt.scatter(x, y, s=sizes)
+plt.show()
+
+# Part 20
+x = np.array([5, 7, 8, 7, 2, 17, 2, 9, 4, 11, 12, 9, 6])
+y = np.array([99, 86, 87, 88, 11, 86, 103, 87, 94, 78, 77, 85, 86])
+sizes = np.array([20, 50, 100, 200, 500 ,1000, 60, 90, 10, 300, 600, 800, 75])
+
+plt.scatter(x, y, s=sizes, alpha=0.5)
+plt.show()
+
+# Part 21
+x = np.random.randint(100, size=100)
+y = np.random.randint(100, size=100)
+colors = np.random.randint(100, size=100)
+size = 10 * np.random.randint(100, size=100)
+
+plt.scatter(x, y, c=colors, s=size, alpha=0.5, cmap='nipy_spectral')
+plt.colorbar()
+plt.show()
+
+# Part 22
+x = np.array(['A', 'B', 'C', 'D'])
+y = np.array([3, 8, 1, 10])
+
+plt.bar(x, y)
+plt.show()
+
+# Part 23
+x = np.random.normal(170, 10, 250)
+print(x)
+
+# Part 24
+x = np.random.normal(170, 10, 250)
+
+plt.hist(x)
+plt.show()
+
+# Part 25
+y = np.array([35, 25, 25, 15])
+plt.pie(y)
+plt.show()
+
+# Part 25
+y = np.array([35, 25, 25, 15])
+my_labels = ['Apples', 'Bananas', 'Cherries', 'Dates']
+
+plt.pie(y, labels=my_labels)
+plt.show()
+
+# Part 26
+y = np.array([35, 25, 25, 15])
+my_labels = ['Apples', 'Bananas', 'Cherries', 'Dates']
+my_explode = [0.2, 0, 0, 0]
+
+plt.pie(y, labels=my_labels, explode=my_explode)
+plt.show()
+
+# Part 26
+y = np.array([35, 25, 25, 15])
+my_labels = ['Apples', 'Bananas', 'Cherries', 'Dates']
+my_explode = [0.2, 0, 0, 0]
+
+plt.pie(y, labels=my_labels, explode=my_explode, shadow=True)
+plt.show()
+
+
