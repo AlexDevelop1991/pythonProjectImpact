@@ -7,6 +7,14 @@ from sklearn.naive_bayes import MultinomialNB
 # Part 1
 data = pd.read_csv('https://raw.githubusercontent.com/amankharwal/Website-data/master/dataset.csv')
 print(data.head())
+print(data.columns)
+
+languages = []
+for lang in data['language']:
+    languages.append(lang)
+
+print(set(languages))
+print(len(set(languages)))
 
 # Part 2
 print(data.isnull().sum())
