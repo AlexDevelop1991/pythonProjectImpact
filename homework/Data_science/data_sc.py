@@ -1,6 +1,6 @@
-import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
+
 # Круговая диаграмма
 time = np.array([37, 54, 16])
 my_labels = ['Work', 'Sleep', 'Computer']
