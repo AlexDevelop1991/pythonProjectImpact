@@ -4,13 +4,13 @@ from scipy import stats
 
 # speed = [99, 86, 87, 88, 111, 86, 103, 87, 94, 78, 77, 85, 86]
 #
-# x = numpy.mean(speed)
+# x = numpy.mean(speed) # Среднее арифметическое
 # print(x)
 #
-# y = numpy.median(speed)
+# y = numpy.median(speed)  # Срединное значение (после сортировки от меньшего к большему)
 # print(y)
 #
-# z = stats.mode(speed)
+# z = stats.mode(speed)  # Наиболее распространеное значение(количествро повторений)
 # print(z)
 
 # speed_a = [86, 87, 88, 86, 87, 85, 86]

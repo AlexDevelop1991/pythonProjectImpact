@@ -59,7 +59,7 @@ data_test = transform_features(data_test)
 
 
 def encode_features(df_train, df_test):
-    features = ['Fare', 'Cabin', 'Age', 'Lname', 'NamePrefix']
+    features = ['Fare', 'Cabin', 'Age', 'Sex', 'Lname', 'NamePrefix']
     df_combined = pd.concat([df_train[features], df_test[features]])
 
     for feature in features:
@@ -107,6 +107,7 @@ ids = data_test['PassengerId']
 predictions = clf. predict(data_test.drop('PassengerId', axis=1))
 output = pd.DataFrame({'PassengerId': ids, 'Sirvived': predictions})
 print(output.head())
+
 
 
 
