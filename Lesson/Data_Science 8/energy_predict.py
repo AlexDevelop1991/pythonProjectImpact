@@ -35,6 +35,6 @@ xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size=0.2, random_stat
 
 model = RandomForestRegressor()
 model.fit(xtrain, ytrain)
-
+#Features[['Day', 'Month', 'ForecastWindproduction', 'SystemLoadEA','SMPEA', 'ORKTemperature', 'ORKWindspeed', 'CO2Intensity', 'ActualWindProduction', 'SystemLoadEP2']]
 features = np.array([[10, 12, 54.10, 4241.05, 49.56, 9.0, 14.8, 491.32, 54.0, 4426.84]])
-model.predict(features)
+print(model.predict(features))
