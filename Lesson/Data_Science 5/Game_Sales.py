@@ -11,8 +11,6 @@ print(data.head())
 print(data.isnull().sum())
 data = data.dropna()
 
-
-
 game =data.groupby('Genre')['Global_Sales'].count().head(10)
 custom_colors = mpl.colors.Normalize(vmin=min(game), vmax=max(game))
 colours = [mpl.cm.PuBu(custom_colors(i)) for i in game]
@@ -25,15 +23,10 @@ plt.rc('font', size=12)
 plt.title('Top 10 Categories of Game Sold', fontsize=20)
 plt.show()
 
-
-
-
-
 x = data[['Rank', 'NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales']]
 y = data['Global_Sales']
 
 xtrain , xtest, ytrain, ytest = train_test_split(x, y, test_size=0.2, random_state=42)
-
 
 model = LinearRegression()
 model.fit(xtrain, ytrain)
