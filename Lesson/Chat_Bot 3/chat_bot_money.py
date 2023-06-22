@@ -11,6 +11,7 @@ Mydict = {
     '/eur': 'EUR',
     '/usd': 'USD',
     '/ron': 'RON',
+    'mdl': 'MDL'
 }
 
 
@@ -30,8 +31,8 @@ def help(message: telebot.types.Message):
 # Show all operation
 @bot.message_handler(commands=['conversion'])
 def operations(message: telebot.types.Message):
-    text = 'Actual currency:\n  /pln_to_usd \n  /pln_to_ron \n  /pln_to_eur \n  /usd_to_pln \n' \
-            '/ron_to_pln \n  /eur_to_pln'
+    text = 'Actual currency:\n  /pln_to_usd \n  /pln_to_ron \n  /pln_to_eur \n  /pln_to_mdl \n /usd_to_pln \n' \
+            '/ron_to_pln \n  /eur_to_pln \n  /mdl_to_pln'
     r1 = requests.get('http://api.nbp.pl/api/exchangerates/rates/a/eur/')
     texts1 = json.loads(r1.content)
     rates1 = texts1.get('rates')
@@ -46,14 +47,22 @@ def operations(message: telebot.types.Message):
     texts3 = json.loads(r3.content)
     rates3 = texts3.get('rates')
     ron1 = str(rates3[0].get('mid'))
+
+    r4 = requests.get('https://api.nbp.pl/api/exchangerates/rates/b/mdl')
+    texts4 = json.loads(r4.content)
+    rates4 = texts4.get('rates')
+    mdl1 = str(rates4[0].get('mid'))
+
     Mydict = {
         'eur': '',
         'usd': '',
         'ron': '',
+        'mdl': '',
     }
     Mydict['eur'] = eur1
     Mydict['usd'] = usd1
     Mydict['ron'] = ron1
+    Mydict['mdl'] = mdl1
     for key in Mydict.keys():
         text = '\n'.join((text, key, '->', Mydict[key]))
     bot.reply_to(message, text)
@@ -93,6 +102,38 @@ def pln_to_ron(message):
         total4 = round((amount4 / ron4), 2)
         result4 = f'{amount4} pln is {total4} ron'
         bot.send_message(message.chat.id, result4)
+
+
+@bot.message_handler(commands=['pln_to_eur'])
+def pln_to_eur(message):
+    bot.send_message(message.chat.id, 'Type how many pln,you want to convert to eur: ')
+
+    @bot.message_handler(content_types=['text', ])
+    def pln_eur(message):
+        r5 = requests.get('http://api.nbp.pl/api/exchangerates/rates/a/eur/')
+        texts5 = json.loads(r5.content)
+        rates5 = texts5.get('rates')
+        eur5 = rates5[0].get('mid')
+        amount5 = int(message.text)
+        total5 = round((amount5 / eur5), 2)
+        result5 = f'{amount5} pln is {total5} eur'
+        bot.send_message(message.chat.id, result5)
+
+
+@bot.message_handler(commands=['pln_to_mdl'])
+def pln_to_mdl(message):
+    bot.send_message(message.chat.id, 'Type how many pln,you want to convert to mdl: ')
+
+    @bot.message_handler(content_types=['text', ])
+    def pln_mdl(message):
+        r6 = requests.get('https://api.nbp.pl/api/exchangerates/rates/b/mdl')
+        texts6 = json.loads(r6.content)
+        rates6 = texts6.get('rates')
+        mdl6 = rates6[0].get('mid')
+        amount6 = int(message.text)
+        total6 = round((amount6 / mdl6), 2)
+        result6 = f'{amount6} pln is {total6} mdl'
+        bot.send_message(message.chat.id, result6)
 
 
 bot.polling(non_stop=True)
