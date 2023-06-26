@@ -101,7 +101,7 @@ def build_cities_keyboard():
 # Query OWM for the weather for place or coords
 def get_weather(place):
     if isinstance(place, dict):  # coordinates provided
-        lat, lon = place['latitude'], place['longitube']
+        lat, lon = place['latitude'], place['longitude']
         url = URL_OWM + '&lat=%f&lon=%f&cnt=1' % (lat, lon)
         logger.info('Requesting weather: ' + url)
         js = make_request(url)
@@ -193,5 +193,5 @@ def main():
             time.sleep(0.5)
 
 
-if __name__ == 'main':
+if __name__ == '__main__':
     main()

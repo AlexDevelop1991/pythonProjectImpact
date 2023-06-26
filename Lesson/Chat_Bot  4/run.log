@@ -1,0 +1,26 @@
+2023-06-26 20:25:22,020 - weather-telegram - INFO - Getting updates
+2023-06-26 20:25:22,021 - weather-telegram - DEBUG - URL: https://api.telegram.org/bot5616580938:AAFUHuYdqqbV2CmKXMoSQjYMzeJuLKSU81E/getUpdates?timeout=None
+2023-06-26 20:25:22,199 - weather-telegram - DEBUG - {'keyboard': [[{'text': '/weather'}]], 'one_time_keyboard': True}
+2023-06-26 20:25:22,390 - weather-telegram - DEBUG - {'keyboard': [[{'text': '/weather'}]], 'one_time_keyboard': True}
+2023-06-26 20:25:22,590 - weather-telegram - DEBUG - {'keyboard': [[{'text': '/weather'}]], 'one_time_keyboard': True}
+2023-06-26 20:25:23,498 - weather-telegram - INFO - Getting updates
+2023-06-26 20:25:23,498 - weather-telegram - DEBUG - URL: https://api.telegram.org/bot5616580938:AAFUHuYdqqbV2CmKXMoSQjYMzeJuLKSU81E/getUpdates?timeout=None&offset=357565373
+2023-06-26 20:25:23,665 - weather-telegram - INFO - Getting updates
+2023-06-26 20:25:23,666 - weather-telegram - DEBUG - URL: https://api.telegram.org/bot5616580938:AAFUHuYdqqbV2CmKXMoSQjYMzeJuLKSU81E/getUpdates?timeout=None&offset=357565373
+2023-06-26 20:25:27,099 - weather-telegram - INFO - Getting updates
+2023-06-26 20:25:27,099 - weather-telegram - DEBUG - URL: https://api.telegram.org/bot5616580938:AAFUHuYdqqbV2CmKXMoSQjYMzeJuLKSU81E/getUpdates?timeout=None&offset=357565373
+2023-06-26 20:25:27,263 - weather-telegram - INFO - Getting updates
+2023-06-26 20:25:27,265 - weather-telegram - DEBUG - URL: https://api.telegram.org/bot5616580938:AAFUHuYdqqbV2CmKXMoSQjYMzeJuLKSU81E/getUpdates?timeout=None&offset=357565373
+2023-06-26 20:25:30,485 - weather-telegram - INFO - Getting updates
+2023-06-26 20:25:30,486 - weather-telegram - DEBUG - URL: https://api.telegram.org/bot5616580938:AAFUHuYdqqbV2CmKXMoSQjYMzeJuLKSU81E/getUpdates?timeout=None&offset=357565373
+2023-06-26 20:25:30,646 - weather-telegram - INFO - Getting updates
+2023-06-26 20:25:30,646 - weather-telegram - DEBUG - URL: https://api.telegram.org/bot5616580938:AAFUHuYdqqbV2CmKXMoSQjYMzeJuLKSU81E/getUpdates?timeout=None&offset=357565373
+2023-06-26 20:25:31,383 - weather-telegram - DEBUG - {'keyboard': [[{'text': 'London'}], [{'text': 'Chisinau'}], [{'text': 'Share location', 'request_location': True}]], 'one_time_keyboard': True}
+2023-06-26 20:25:32,076 - weather-telegram - INFO - Getting updates
+2023-06-26 20:25:32,076 - weather-telegram - DEBUG - URL: https://api.telegram.org/bot5616580938:AAFUHuYdqqbV2CmKXMoSQjYMzeJuLKSU81E/getUpdates?timeout=None&offset=357565374
+2023-06-26 20:25:32,260 - weather-telegram - INFO - Getting updates
+2023-06-26 20:25:32,261 - weather-telegram - DEBUG - URL: https://api.telegram.org/bot5616580938:AAFUHuYdqqbV2CmKXMoSQjYMzeJuLKSU81E/getUpdates?timeout=None&offset=357565374
+2023-06-26 20:25:34,142 - weather-telegram - INFO - Weather requested for London
+2023-06-26 20:25:34,143 - weather-telegram - INFO - Requesting weather: https://api.openweathermap.org/data/2.5/weather?appid=40980343d739a08f12561866f7373508&units=metric&q=London
+2023-06-26 20:25:34,143 - weather-telegram - DEBUG - URL: https://api.openweathermap.org/data/2.5/weather?appid=40980343d739a08f12561866f7373508&units=metric&q=London
+2023-06-26 20:25:34,392 - weather-telegram - DEBUG - {'cod': 401, 'message': 'Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.'}
