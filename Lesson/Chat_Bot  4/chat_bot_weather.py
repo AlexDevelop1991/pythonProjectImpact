@@ -60,7 +60,7 @@ def config_logging():
 def parse_config():
     global URL, URL_OWM, POLLING_TIMEOUT
     URL = f'https://api.telegram.org/bot{TOKEN}/'
-    URL_OWN = f'https://api.openweathermap.org/data/2.5/weather?appid={OWN_KEY}&units=metric'
+    URL_OWM = f'https://api.openweathermap.org/data/2.5/weather?appid={OWN_KEY}&units=metric'
 
 
 # Make a request to Telegram bot and get JSON response
@@ -164,7 +164,7 @@ def handle_updates(updates):
         elif text.startswith('/'):
             logger.warning('Invalid command %s' % text)
             continue
-        elif (text in cities) and (chat_id in chats) and (chats[chat_id]) == 'weatherReq'):
+        elif (text in cities) and (chat_id in chats) and (chats[chat_id] == 'weatherReq'):
             logger.info('Weather requested for %s' % text)
             # Send weather to chat id and clear state
             send_message(get_weather(text), chat_id)
