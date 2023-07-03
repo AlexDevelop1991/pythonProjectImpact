@@ -25,7 +25,7 @@ def create_rating_matrix(path):
     df = pd.read_csv(path, sep=',', usecols=['userId', 'movieId', 'rating'])
     df = df.pivot(index='userId', columns='movieId', values='rating')
     df = df.fillna(value=0)
-    return  df.values, df.index.values, df.columns.values
+    return df.values, df.index.values, df.columns.values
 
 
 # Import the titles
@@ -130,4 +130,99 @@ def rate_movie():
     readFile.close()
     # Return json string
     return jsonify({'status': 'success'})
+
+
+# Recommend n movies if the user has rated engough movies
+@app.route('/recommend', methods=['POST'])
+def recommend():
+    # Retrieve received data
+    data = request.json
+    chat_id = data['caht_id']
+    top_n = data['top_n']
+
+    # Select the ammount of ratings the user has to submit
+    N_RATINGS = 10
+    # Check if the User has recommrnded at least ten movies
+    user_idx = np.where(current_app.users == chat_id)
+    user_ratings = current_app.rating_matrix[user_idx]
+    if np.where(user_ratings != 0)[1].size < N_RATINGS:
+        return jsonify({'movies': []})
+
+    # similarity between users function
+    def similarity(u1, u2):
+        r, _ = pearsonr(current_app.rating_matrix[u1][0], current_app.rating_matrix[u2])
+        return  r
+    # Create list of index and similarity of the 20 users, with the highest similarity in descending order
+    similar_neighbours = []
+    for i in range(current_app.users.shape[0]):
+        if i != user_idx:
+            similar_neighbours.append((i, similarity(user_idx, i)))
+    similar_neighbours = sorted(similar_neighbours, key=lambda x: x[1], reverse=True)
+
+    # User based collaborative filtering if there are enough recommendations
+    # Select the ammount of neighbours to be calculated in the recommendation
+    # More neighbours, better prediction, but also more computational time
+    N_NEIGBOURS = 15
+    # Create prediction for every single movie with user-based prediction formula
+    predictions = []
+    # Mean of the ratings of the user
+    user_mean = np.mean([r for r in user_ratings[0] if r > 0])
+
+    # Itterate through all the movies
+    for movie in current_app.movies:
+        prediction = 0
+        num = 0
+        denom = 0
+
+        # Get the index of the Movie
+        movie_idx = np.where(current_app.movies == movie)
+
+        # Check if the movie has already been rated, if yes, then don't put in prediction
+        if current_app.rating_matrix[user_idx, movie_idx] == 0:
+
+            # Get all the users which rated the movie
+            movie_raters = [neighbour for neighbour in similar_neighbours if
+                            current_app.rating_matrix[neighbour[0], movie_idx] > 0][1:N_NEIGBOURS + 1]
+
+            # Iterate through all the similar neighbours
+            for neighbour in movie_raters:
+                # Index and similarity of the neighbour
+                neighbour_idx = neighbour[0]
+                neighbour_similarity = neighbour[1]
+
+                # Create the mean of all the ratings of a neighbour
+                neighbour_mean = np.mean([r for r in current_app.rating_matrix[neighbour_idx] if r > 0])
+
+                # Get the value the neighbour rated this movie
+                neighbour_rating = current_app.rating_matrix[neighbour_idx, movie_idx]
+
+                # Calculate the prediction
+                num += neighbour_similarity * (neighbour_rating - neighbour_mean)
+                denom += neighbour_similarity
+            prediction = user_mean + num / denom
+            predictions.append((movie, prediction))
+
+    # Sort the predictions and get the top n
+    predictions = sorted(predictions, key=lambda x: x[1], reverse=True)[:top_n]
+
+    # Create response and jsonify it
+    movies = []
+    for prediction in predictions:
+        movies.append({
+            'title': current_app.titles[np.where(current_app.titles == prediction[0])[0]][0][1],
+            'url': 'https://www.imdb.com/title/tt{}/'.format(
+                current_app.links[np.where(current_app.links == prediction[0])[0]][0][1])
+        })
+    return jsonify({'movies': movies})
+
+
+# Main function to be run
+if __name__ == '__main__':
+    app.run(host=HOST, port=PORT)
+
+
+
+
+
+
 
