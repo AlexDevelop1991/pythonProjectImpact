@@ -137,7 +137,7 @@ def rate_movie():
 def recommend():
     # Retrieve received data
     data = request.json
-    chat_id = data['caht_id']
+    chat_id = data['chat_id']
     top_n = data['top_n']
 
     # Select the ammount of ratings the user has to submit
