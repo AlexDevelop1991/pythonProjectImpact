@@ -2,7 +2,7 @@ import time
 import logging
 import requests
 import json
-import telebot
+import telepot
 from telepot.loop import MessageLoop
 from telepot.namedtuple import InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -125,7 +125,7 @@ def handle(msg):
 
 if __name__ == '__main__':
     # Provide your bot's token
-    bot = telebot.Bot(TOKEN)
+    bot = telepot.Bot(TOKEN)
     MessageLoop(bot, handle).run_as_thread()
 
     while True:

@@ -111,7 +111,7 @@ def rate_movie():
     # Retrieve received data
     data = request.json
     chat_id = data['chat_id']
-    movie_id = int(data['movieID'])
+    movie_id = int(data['movie_id'])
     rating = int(data['rating'])
 
     # Updated rating matrix

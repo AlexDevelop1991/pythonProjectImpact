@@ -11,7 +11,7 @@ IMAGE_PATH = 'infer_image.png'
 Classes = {'Apple': 0, 'Asparagus': 1, 'Aubergine': 2, 'Avocado': 3,
            'Banana': 4, 'Brown-Cap-Mushroom': 5, 'Cabbage': 6,
            'Carrots': 7, 'Cucumber': 8, 'Ginger': 9, 'Juice': 10,
-           'Kiwi': 11, 'Leek': 12, 'Lemon': 13, 'Lime': 14
+           'Kiwi': 11, 'Leek': 12, 'Lemon': 13, 'Lime': 14,
            'Mango': 15, 'Melon': 16, 'Milk': 17, 'Oat-Milk': 18,
            'Oatghurt': 19, 'Onion': 20, 'Orange': 21, 'Passion-Fruit': 22,
            'Peach': 23, 'Pear': 24, 'Pepper': 25, 'Pineapple': 26,
