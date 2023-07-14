@@ -9,7 +9,7 @@ MODEL_EMBEDDINGS_PATH = os.path.join(MODEL_PATH, 'similarity_embeddings')
 CUISINE_CLASSES = ['greek', 'southern_us', 'filipino', 'indian', 'jamaica',
                    'spanish', 'italian', 'mexican', 'chinese', 'british',
                    'thai', 'vietnamese', 'cajun-creole', 'brazilian',
-                   'french', 'japanese', 'irish', 'korean', 'morpccan', 'russian']
+                   'french', 'japanese', 'irish', 'korean', 'moroccan', 'russian']
 
 
 # Load from file
