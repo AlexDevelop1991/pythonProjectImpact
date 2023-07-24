@@ -160,3 +160,121 @@ def button2(update: Update, context: CallbackContext) -> int:
         context.bot.send_message(chat_id=context.user_data['chat_id'], text=txt)
 
     return CHOOSING
+
+
+def show_basket(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+    logger.info(f"{user.first_name}: show_basket")
+
+    user_data = context.user_data
+
+    txt = get_basket_txt(user_data['ingredients_list'])
+
+    update.message.reply_text(
+        txt,
+        reply_markup=markup,
+    )
+    return CHOOSING
+
+
+def received_text_information(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+    logger.info(f"{user.first_name}: received_text_information")
+
+    user_data = context.user_data
+    text = update.message.text
+
+    if 'ingredients_list' not in user_data:
+        user_data['ingredients_list'] = [text]
+    else:
+        user_data['ingredients_list'].append(text)
+
+    txt = get_basket_txt(user_data['ingredients_list'])
+    update.message.reply_text(
+        txt,
+        reply_markup=markup,
+    )
+    return CHOOSING
+
+
+def remove_item(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+    logger.info(f"{user.first_name}: remove_item")
+
+    user_data = context.user_data
+    if 'ingredients_list' in user_data:
+        del user_data['ingredients_list'][-1]
+
+    introduction = 'You have deleted the last ingredient. '
+    txt = get_basket_txt(user_data['ingredients_list'])
+    update.message.reply_text(
+        txt,
+        reply_markup=markup,
+    )
+    return CHOOSING
+
+
+def done(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+    logger.info(f"{user.first_name}: done")
+
+    user_data = context.user_data
+    if 'ingredients_list' in user_data:
+        del user_data['ingredients_list']
+
+    update.message.reply_text(
+        f"Bye bye until next time!"
+    )
+
+    user_data.clear()
+    return ConversationHandler.END
+
+
+def main(bot_token) -> None:
+    # Create the Update and pass if your bot's token.
+    # Make sure to set use_context=True to use the new context based callbacks
+    # Post version 12 this will no longer be necessary
+    updater = Updater(bot_token, use_context=True)
+
+    # Get the dispatcher to register handlers
+    dispatcher = updater.dispatcher
+
+    # Add conversation handler with the states CHOOSING, TYPE_CHOISE and TYPING_REPLY
+    conv_handler = ConversationHandler(
+        entry_points=[CommandHandler('start', start)],
+        states={
+            CHOOSING: [
+                MessageHandler(Filters.photo & ~(
+                        Filters.command | Filters.regex('^(Done|Get recipes|Show ingredients|Remove item)$')),
+                               received_image_information),
+                MessageHandler(Filters.text & ~(
+                        Filters.command | Filters.regex('^(Done|Get recipes|Show ingredients|Remove item)$')),
+                               received_text_information),
+                MessageHandler(Filters.regex('^Get recipes$'), recipes_query),
+                MessageHandler(Filters.regex('^Show ingredients$'), show_basket),
+                MessageHandler(Filters.regex('^Remove item$'), remove_item),
+            ],
+            CALLBACK1: [
+                CallbackQueryHandler(button1)],
+            CALLBACK2: [
+                CallbackQueryHandler(button2)],
+        },
+        fallbacks=[MessageHandler(Filters.regex('^Done$'), done)],
+        per_message=False,
+    )
+
+    dispatcher.add_handler(conv_handler)
+
+    # Start the Bot
+    updater.start_polling()
+
+    # Run the bot until you press Ctrl-C or the process receives SIGINT,
+    # SIGTERM or SIGABRT. This should be used most of the time, since
+    # start_polling() is non-blocking and will stop the bot gracefully.
+    updater.idle()
+
+
+if __name__ == '__main__':
+    token_TG = '5616580938:AAFUHuYdqqbV2CmKXMoSQjYMzeJuLKSU81E'
+
+    main(token_TG)
