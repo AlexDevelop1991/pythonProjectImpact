@@ -73,8 +73,10 @@ def create_model_cuisine_predictions():
     dataset_train, dataset_test = model_selection.train_test_split(dataset, test_size=0.3, random_state=42)
 
     # Create embeddings
-    X_train = dataset_train['ingredients_query']; X_test = dataset_test['ingredients_query']
-    y_train = dataset_train['cuisine']; y_test = dataset_test['cuisine']
+    X_train = dataset_train['ingredients_query']
+    X_test = dataset_test['ingredients_query']
+    y_train = dataset_train['cuisine']
+    y_test = dataset_test['cuisine']
 
     # Train classifier
     model.fit(X_train, y_train)
