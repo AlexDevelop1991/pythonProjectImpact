@@ -19,7 +19,7 @@ import sqlite3 as sq
 
 from .feature_engineering import process_data, create_embeddings
 
-MODEL_PATH = 'model/nlp'
+MODEL_PATH = 'models/nlp'
 MODEL_EMBEDDINGS_PATH = os.path.join(MODEL_PATH, 'similarity_embeddings')
 CUISINE_CLASSES = ['brazilian', 'british', 'cajun_creole', 'chinese',
                    'filipino', 'french', 'greek', 'indian', 'irish',
@@ -112,7 +112,7 @@ def d2v_embeddings(data):
         # Fix the learning rate, no decay
         model_embedding.min_alpha = model_embedding.alpha
 
-        return model_embedding
+    return model_embedding
 
 
 def train_model_embeddings():

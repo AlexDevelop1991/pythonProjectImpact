@@ -90,13 +90,13 @@ def create_embeddings(dataset):
         print('  . top features:', ','.join(dtf_features[dtf_features['labels'] == cat]['feature'].values[:10]))
         print(' ')
 
-        # New embeddings
-        vectorizer = feature_extraction.text.TfidfVectorizer(vocabulary=names)
-        vectorizer.fit(corpus)
-        embedded_ingredients = vectorizer.transform(corpus)
-        dic_vocabulary = vectorizer.vocabulary_
+    # New embeddings
+    vectorizer = feature_extraction.text.TfidfVectorizer(vocabulary=names)
+    vectorizer.fit(corpus)
+    embedded_ingredients = vectorizer.transform(corpus)
+    dic_vocabulary = vectorizer.vocabulary_
 
-        return vectorizer
+    return vectorizer
 
 
 def process_recipes(data):

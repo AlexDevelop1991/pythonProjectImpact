@@ -4,9 +4,9 @@ import os
 from .feature_engineering import get_tokenize_text
 from ..data_base.inference import get_df_from_db
 
-MODEL_PATH = 'model/nlp'
+MODEL_PATH = 'models/nlp'
 MODEL_EMBEDDINGS_PATH = os.path.join(MODEL_PATH, 'similarity_embeddings')
-CUISINE_CLASSES = ['greek', 'southern_us', 'filipino', 'indian', 'jamaica',
+CUISINE_CLASSES = ['greek', 'southern_us', 'filipino', 'indian', 'jamaican',
                    'spanish', 'italian', 'mexican', 'chinese', 'british',
                    'thai', 'vietnamese', 'cajun-creole', 'brazilian',
                    'french', 'japanese', 'irish', 'korean', 'moroccan', 'russian']
@@ -30,7 +30,7 @@ def predict_cuisine(input_text):
     # Tokenize text
     tokenize_text = get_tokenize_text(input_text)
     # Get model
-    model_path = os.path.join(MODEL_PATH, 'pickle.pkl')
+    model_path = os.path.join(MODEL_PATH, 'pickle_model.pkl')
     model = load_pkl(model_path)
     # Tokenize text
     tokenize_text = get_tokenize_text(input_text)
