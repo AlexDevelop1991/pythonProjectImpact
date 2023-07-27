@@ -112,16 +112,16 @@ def d2v_embeddings(data):
         return model_embedding
 
 
-    def train_model_embeddings():
-        db = sq.connect('recipes.db')
-        cursor = db.cursor()
+def train_model_embeddings():
+    db = sq.connect('recipes.db')
+    cursor = db.cursor()
 
-        for cuisine in CUISINE_CLASSES:
-            sql_query = 'SELECT title, instructions, ingredients, ingredients_query' \
-                        'FROM main_recipes WHERE cuisine = ?'
-            data = pd.read_sql(sql_query, db, params=(cuisine,))
+    for cuisine in CUISINE_CLASSES:
+        sql_query = 'SELECT title, instructions, ingredients, ingredients_query' \
+                    'FROM main_recipes WHERE cuisine = ?'
+        data = pd.read_sql(sql_query, db, params=(cuisine,))
 
-            model_embedding = d2v_embeddings(data)
-            save_pkl(model_embedding, os.path.join(MODEL_EMBEDDINGS_PATH, f"d2v_{cuisine}.pkl"))
+        model_embedding = d2v_embeddings(data)
+        save_pkl(model_embedding, os.path.join(MODEL_EMBEDDINGS_PATH, f"d2v_{cuisine}.pkl"))
 
 

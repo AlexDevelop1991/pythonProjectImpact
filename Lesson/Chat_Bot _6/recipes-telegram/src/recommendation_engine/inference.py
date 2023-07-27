@@ -2,7 +2,7 @@ import pickle
 import os
 
 from .feature_engineering import get_tokenize_text
-from .data_base.inference import get_df_from_db
+from ..data_base.inference import get_df_from_db
 
 MODEL_PATH = 'model/nlp'
 MODEL_EMBEDDINGS_PATH = os.path.join(MODEL_PATH, 'similarity_embeddings')
