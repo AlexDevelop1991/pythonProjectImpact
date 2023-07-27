@@ -43,7 +43,8 @@ def compute_performances(predicted, predicted_prob, y_test):
     # Accuracy, Precision, Recall
     accuracy = metrics.accuracy_score(y_test, predicted)
     balance_accuracy = metrics.balanced_accuracy_score(y_test, predicted)
-    auc = metrics.roc_auc_score(y_test, predicted_prob, multi_class='ovr')
+    auc = metrics.roc_auc_score(y_test, predicted_prob,
+                                multi_class='ovr')
     print('Balanced Accuracy:', round(balance_accuracy, 2))
     print('Accuracy:', round(accuracy, 2))
     print('Auc:', round(auc, 2))
@@ -62,7 +63,7 @@ def create_model_cuisine_predictions():
     classifier = LogisticRegressionCV(cv=3,
                                       random_state=42,
                                       max_iter=300,
-                                      n_jobs=1,
+                                      n_jobs=-1,
                                       verbose=1)  # naive_bayes.MultinomialNB()
 
     # Pipeline

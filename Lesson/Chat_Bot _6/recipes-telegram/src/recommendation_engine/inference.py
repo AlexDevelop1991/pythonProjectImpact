@@ -38,7 +38,7 @@ def predict_cuisine(input_text):
     # Get classes ordered by probability
     proba = model.predict_proba([tokenize_text])[0]
     # Sorted index text
-    indexes = sorted(range(len(proba)), key=lambda k:proba[k], reverse=True)
+    indexes = sorted(range(len(proba)), key=lambda k: proba[k], reverse=True)
     # Get cuisine
     cuisine_labels = model.classes_.tolist()
     cusine_ordered = [cuisine_labels[ind] for ind in indexes]
