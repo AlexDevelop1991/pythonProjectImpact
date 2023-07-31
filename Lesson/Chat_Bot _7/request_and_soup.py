@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+# Beautiful Soup — это библиотека Python для извлечения данных из файлов HTML и XML
 
 def request_sneakers_man():
     response_man = requests.get('https://999.md/ru/list/clothes-and-shoes/sports-shoes?hide_duplicates=no&buy_online=no&applied=1&ef=2104,2107,2111&o_2111_755=18603')
